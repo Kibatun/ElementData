@@ -1,0 +1,24 @@
+﻿<Window x:Class="ItemData.UserWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ItemData"
+             mc:Ignorable="d"
+		Title="Параметры объекта" Height="500" Width="800" MinHeight="100" MinWidth="100">
+	<Grid ShowGridLines="True">
+		<ListBox Grid.Column="0" ItemsSource="{Binding Parameters}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<TextBlock Text="{Binding Path= Name}"  VerticalAlignment="Top" FontSize="14" Height="40" Width="auto"/>
+						<TextBlock Text="{Binding Path= Value}" Margin ="500,0,0,0" VerticalAlignment="Top" FontSize="14" Height="40" Width="auto"/>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+	</Grid>
+</Window>
