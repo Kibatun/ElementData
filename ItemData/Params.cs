@@ -32,12 +32,14 @@ namespace ItemData
                 foreach(Parameter p in set)     //Перебор всех параметров
                 {
                     string pName = p.Definition.Name;
-                    string pValue = "Пусто";     //Присваивание каждому параметру тип string 
+                    string pValue = "";     //Присваивание каждому параметру тип string 
                     if (p.StorageType == StorageType.String)
                         pValue = p.AsString();
-                    /*else if (p.StorageType == StorageType.None)
-                        pValue = "Пусто"; */
                     else pValue = p.AsValueString();
+                    if (string.IsNullOrEmpty(pValue))       //Если строка пустая. Нельзя перед, т.к. будет перезапись pValue
+                    {
+                        pValue = "<Нет>";
+                    }    
                     ParamProps paramProps = new ParamProps();       //Экземпляр класса, где хранятся/заносятся value и name
                     paramProps.Name = pName;
                     paramProps.Value = pValue;

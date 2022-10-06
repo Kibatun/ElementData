@@ -5,14 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ItemData"
              mc:Ignorable="d"
-		Title="Параметры объекта" Height="500" Width="800" MinHeight="100" MinWidth="100">
+		Title="Параметры объекта" Height="500" Width="600" MinHeight="100" MinWidth="100" MaxWidth="700">
 	<Grid ShowGridLines="True">
-		<ListBox Grid.Column="0" ItemsSource="{Binding Parameters}">
+		<ListBox Grid.Column="0" ItemsSource="{Binding Parameters}" Background="LightGray">
+			<ListBox.ItemContainerStyle>
+				<Style TargetType="ListBoxItem">
+					<Setter Property="BorderBrush" Value="Gray"/>
+					<Setter Property="BorderThickness" Value="1"/>
+				</Style>
+			</ListBox.ItemContainerStyle>
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Grid>
-						<TextBlock Text="{Binding Path= Name}"  VerticalAlignment="Top" FontSize="14" Height="40" Width="auto"/>
-						<TextBlock Text="{Binding Path= Value}" Margin ="500,0,0,0" VerticalAlignment="Top" FontSize="14" Height="40" Width="auto"/>
+						<TextBlock Text="{Binding Path= Name}"   VerticalAlignment="Top" FontSize="14" Height="40" Width="auto"/>
+						<TextBlock Text="{Binding Path= Value}" Margin ="400,0,0,0" VerticalAlignment="Top" FontSize="14" Height="40" Width="390"/>
 					</Grid>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
